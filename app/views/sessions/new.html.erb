@@ -1,0 +1,45 @@
+<%content_for :javascript do%>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#register_form').load("/register");
+      $('#register_form').hide();
+      $('#show_login').hide();
+
+      $('#show_register').click(function(){
+        $('#login_form').fadeOut("fast");
+        $('#register_form').fadeIn("slow");
+        $('#show_login').show();
+        $('#show_register').hide();
+        return false;
+      });
+
+      $('#show_login').click(function(){
+        $('#login_form').fadeIn("slow");
+        $('#register_form').fadeOut("fast");
+          $('#show_login').hide();
+        $('#show_register').show();
+      
+        return false;
+      });
+    });
+
+  </script>
+<%end%>
+<div id="login_form">
+  <%form_tag session_path do%>
+    <%=label_tag :name%>
+    <%=text_field_tag :name%><br>
+    <%=label_tag :password%>
+    <%=password_field_tag :password%><br>
+    <%=submit_tag "Login"%>
+  <%end%>
+</div>
+
+<div id="register_form">
+
+
+
+</div>
+<%=link_to "Register",register_path,{:id=>"show_register"}%>
+<%=link_to "Login",new_session_path,{:id=>"show_login"}%>
+<%=link_to 'Open id',new_openid_path%>

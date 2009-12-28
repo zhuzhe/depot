@@ -1,0 +1,25 @@
+
+
+
+<% @products.each do |product| %>
+<div class="product">
+    
+  <%=link_to (image_tag product.image_url ,:size=>"100x100",:class=>"image",:alt=>'click more'),product_path(product)%><br>
+  
+    name:     <%=h product.name %><br>
+    descrition:    <%=h truncate( product.description.gsub(/<.*?>/,""),50 )%><br>
+    
+    price:<span style="color:green"><%=h number_to_currency(product.price) %></span>  <br>
+    <%if product.onsale%>
+    state:  <%=h "onsale" %><br>
+    <%else%>
+    state:  <%=h "out of stock" %><br>
+   
+    <%end%>
+  
+<%=button_to "add to car",{:controller=>"store",:action=>"add_to_car",:id=>product} %>
+
+</div>
+<% end %>
+
+

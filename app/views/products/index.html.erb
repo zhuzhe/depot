@@ -1,0 +1,32 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Name</th>
+     <th>Quantity</th>
+    <th>Description</th>
+    <th>Image url</th>
+    <th>Price</th>
+     <th>OnSale</th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%=h product.category.name %></td>
+    <td><%=h product.name %></td>
+    <td><%=h product.quantity %></td>
+    <td><%=h truncate( product.description.gsub(/<.*?>/,""),80 )%></td>
+    <td><%=image_tag product.image_url,:size=>'100x150' %></td>
+    <td><%=h number_to_currency(product.price) %></td>
+     <td><%=h product.onsale %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New product', new_product_path %>

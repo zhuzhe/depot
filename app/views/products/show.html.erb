@@ -1,0 +1,50 @@
+<p>
+
+  <%=image_tag @product.image_url,:size=>"500x400" %>
+</p>
+<p>
+  <b>Categoy:</b>
+  <%=h @product.category.name %>
+</p>
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+
+
+<p>
+  <b>Price:</b>
+  <%=h @product.price %>
+</p>
+<p>
+  <b>OnSale:</b>
+  <%=h @product.onsale %>
+</p>
+<p>
+  <b>Comments:</b><br>
+  <%for comment in @product.comments%>
+  <%=h comment.content%><br>
+  <%=h comment.user.name%>
+  <%=h comment.created_at%><br>
+<div style="width:600px;height:1px;background-color:black"></div>
+  <%end%>
+</p>
+<br>
+<b>New Comment:</b>
+<%form_for Comment.new,product_comments_path(@product) do |f|%>
+<%=f.text_area :content,:size=>"40x5"%>
+<%=f.hidden_field :product_id,{:value=> @product.id}%><br>
+<%=f.submit "comment"%>
+<%end%>
+<%if session[:admin?]%>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+<%else%>
+<%= link_to 'Back', home_path %>
+<%end%>

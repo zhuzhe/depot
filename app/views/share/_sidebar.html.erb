@@ -1,0 +1,31 @@
+<div id="sidebar">
+Category<br>
+<%=link_to 'Latest Product','#',:id=>'latest'%><br><br>
+<%=link_to "notebook","#",:id=>"notebook",:class=>"category"%><br>
+<%=link_to "book","#",:id=>"book",:class=>"category"%><br>
+<%=link_to "software","#",:id=>"software",:class=>"category"%><br>
+<p>
+<%if session[:admin?]%>
+<%=link_to "Products",products_path%><br>
+<%=link_to "Orders",orders_path%><br>
+<%=link_to "Users",users_path%><br>
+<%=link_to "Reporots",daily_reports_path%><br>
+</p>
+<%end%><br>
+<%=link_to 'Contact Us','#',:id=>'contact'%>
+<div id="contact_content">
+  <strong>if you have any problem,
+    you can contact us as following
+  </strong>
+  <div>
+  <p>
+  <ul>
+    <li style="float:left">tel:xxxx-xxxxxx</li>
+    <li style="float:left">adress:xxxxxxxxxxx</li>
+    <li style="float:left">email:xxx@sina.com</li>
+  </ul>
+</p>
+</div>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+dave:
+  name: dave
+  email: zhuzheiswho@sina.com
+  salt: dave
+  hashed_password: dave
+
+jim:
+  name: jim
+  email: zhuzheiswho@gmail.com
+  salt: jim
+  hashed_password: jim

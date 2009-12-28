@@ -1,0 +1,61 @@
+/* 
+    Document   : store
+    Created on : 2009-12-11, 22:23:47
+    Author     : 朱哲
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#sidebar {
+    
+    background-color: #ccffcc;
+    background-position: left;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: absolute;
+    top: 130px;
+    width: 150px;
+   
+    height: 900px;
+    border-right-style: groove;
+    border-left-style: groove;
+    border-bottom-style: groove;
+    border-top-style: groove;
+    border-right-color: #6666ff;
+    border-left-color: #6666ff;
+    border-bottom-color: #6666ff;
+    border-top-color: #6666ff;
+    color: #3333ff;
+  
+}
+
+#search_form{
+    
+    background-color: #ccffcc;
+    
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#products{
+    
+    
+    left: 500px;
+    text-align: center;
+}
+.button{
+
+    background-color: #999999;
+    font-family: 'Courier New',Courier,monospace;
+}
+

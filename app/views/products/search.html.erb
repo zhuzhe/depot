@@ -1,0 +1,9 @@
+
+
+
+<%for product in @products%>
+<%=image_tag product.image_url, :size => "100x150"%><br>
+<%=product.name%><br>
+<%= number_to_currency product.price%><br>
+<%=button_to "add to car",{:controller=>"store",:action=>"add_to_car",:id=>product}%>
+<%end%>

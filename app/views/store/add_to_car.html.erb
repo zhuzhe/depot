@@ -1,0 +1,27 @@
+
+
+CART <br>
+<%if @car%>
+  <%for item in @car.items%>
+    name:
+    <li><%=h item.name%></li>
+    quantity:
+    <li><%=h item.quantity%></li>
+    money:
+    <li><%=h number_to_currency(item.price)%></li>
+    <li>edit quantity:</li>
+    <li>
+        <%form_for item,:url=> {:controller=>'store',:action=>'edit_quantity'}do|f|%>
+        <%=f.text_field :quantity%>
+        <%=f.hidden_field 'product_id',:value=>item.product.id%>
+        <%=f.submit 'confirm'%>
+        <%end%>
+    </li>
+     <li><%=button_to "remove",{:action=>"remove_from_car",:id=>item.id}%></li>
+  <%end%>
+     Total
+     <%=number_to_currency( @car.total_price)%>
+<%end%>
+
+    <%=button_to "empty_car",:action=>"empty_car"%>
+     <%=button_to "check_out",new_order_path%>

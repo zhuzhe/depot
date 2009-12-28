@@ -1,0 +1,20 @@
+<h1>Editing daily_report</h1>
+
+<% form_for(@daily_report) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :income %><br />
+    <%= f.text_field :income %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.text_field :created_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @daily_report %> |
+<%= link_to 'Back', daily_reports_path %>

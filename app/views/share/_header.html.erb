@@ -1,0 +1,7 @@
+<div id="header">
+<%=link_to "login",new_session_path%><br>
+<%=link_to "register",register_path%><br>
+<%if session[:user_id]%>
+<%=link_to "log out",session_path,:method=>"post"%>
+<%end%>
+  </div>

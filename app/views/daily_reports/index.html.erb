@@ -1,0 +1,50 @@
+<%content_for :javascript do%>
+<script type="text/javascript">
+  $(document).ready(function(){
+   
+    $('#check').click(function(){
+     
+       $.post('/daily_reports/every_mouth_income',{year:$('#date_year').val()}, function(json){
+                                var  income=JSON.parse(json);
+                                var incomes=new Array();
+                                 var income_str;
+                                for(var i=0;i<income.length;i++){
+                                  incomes[i]=income[i].daily_report.month_income;
+                                }
+                               income_str= incomes.join(",");
+
+                                   $('#report_chart').html("<img src='http://chart.apis.google.com/chart?cht=lc&amp;chxp=1,0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000&amp;chxr=1,0,12000&amp;chd=t:"+income_str+"&amp;chds=0,12000&amp;chxt=x,y&amp;chs=700x350&amp;chxl=0:|January|January|March|April|May|June|July|August|September|November|December&amp;chm=V,3399CC,0,-1,1.0></img>");
+                              });
+      return false;
+    });
+    
+
+    });
+</script>
+<%end%>
+<a href="/income">test</a>
+<h1>Listing daily_reports</h1>
+
+<table>
+  <tr>
+    <th>Income</th>
+    <th>Time</th>
+  </tr>
+
+<% @daily_reports.each do |daily_report| %>
+  <tr>
+    <td><%=h number_to_currency(daily_report.income) %></td>
+    <td><%=h daily_report.created_at%></td>
+    <td><%= link_to 'Show', daily_report %></td>
+    <td><%= link_to 'Edit', edit_daily_report_path(daily_report) %></td>
+    <td><%= link_to 'Destroy', daily_report, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%=select_year Time.now%><%=button_to 'check report','#',:id=>'check'%>
+<div id="report_chart">
+  <%#*<img src='http://chart.apis.google.com/chart?cht=p3&amp;chs=500x250&amp;chd=t:60,40&amp;chl=hello|word'  alt="Sample chart" ></img>%>
+  </div>
+<%= link_to 'New daily_report', new_daily_report_path %>

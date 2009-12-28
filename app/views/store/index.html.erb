@@ -1,0 +1,49 @@
+<%content_for :javascript do%>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#contact_content').hide();
+
+     $('#products').load("/products/latest");
+    $('#notebook').click(function(){
+      
+       $('#products').load("/products/find_products_with_category", {category_id:1});
+      
+    });
+     $('#book').click(function(){
+      
+       $('#products').load("/products/find_products_with_category", {category_id:2});
+       
+    });
+    $('#software').click(function(){
+      
+       $('#products').load("/products/find_products_with_category", {category_id:3});
+       
+    });
+     $('#latest').click(function(){
+
+       $('#products').load("/products/latest");
+
+    });
+   
+    $('#contact').toggle(function(){
+      $('#contact_content').slideDown('slow');
+    
+    },function(){
+      $('#contact_content').slideUp('slow');
+    });
+  });
+</script>
+<%end%>
+<%=render :partial=>"share/header"%>
+<%=render :partial=>"share/sidebar"%>
+<div id="search_form">
+<%form_tag search_products_path do%>
+ <%=text_field_tag :key%>
+<%=submit_tag "Search",:class=>"button"%><br>
+
+<%end%>
+ </div>
+
+<div id="products"  >
+
+</div>

@@ -1,0 +1,29 @@
+/* 
+    Document   : product
+    Created on : 2009-12-11, 23:17:42
+    Author     : 朱哲
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.product {
+    
+     background-color: #ccccff;
+    border-bottom-style: groove;
+    margin-left: 160px;
+    text-align: center;
+    vertical-align: middle;
+}
+.image{
+    
+    position: absolute;
+    left: 200px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+

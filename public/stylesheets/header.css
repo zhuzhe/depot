@@ -1,0 +1,31 @@
+/* 
+    Document   : header
+    Created on : 2009-12-11, 22:32:30
+    Author     : 朱哲
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#header {
+    
+    
+   
+    
+    position: relative;
+    height: 90px;
+    
+    background-color: #ccccff;
+    text-align: right;
+    vertical-align: middle;
+    text-indent: 8px;
+    font-family: Georgia,'Times New Roman',times,serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
