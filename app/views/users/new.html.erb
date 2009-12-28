@@ -19,10 +19,12 @@
     <%= f.label :password_comfirmation,"Confirm" %><br />
     <%= f.password_field :password_confirmation,:size=>40 %>
   </p>
+  <%unless session[:admin?]%>
   <p>
     <%= f.label :admin %><br />
     <%= f.select :admin,[["YES",true],["NO",false]] %>
   </p>
+  <%end%>
   <p>
     <%= f.submit 'Create' %>
   </p>

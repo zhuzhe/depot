@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
 
-  skip_before_filter :require_login,:only=>[:register]
+  skip_before_filter :require_login,:only=>[:create]
   
-  skip_before_filter :require_admin,:only=>[:register]
+  skip_before_filter :require_admin,:only=>[:create]
   def index
     @users = User.all
 
@@ -57,8 +57,13 @@ class UsersController < ApplicationController
            format.html { redirect_to new_session_path }
         end
       else
+        if(@user.admin?)
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        else
+          flash[:notice]='error'
+          format.html{render 'register'}
+        end
       end
     end
   end
