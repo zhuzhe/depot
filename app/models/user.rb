@@ -1,6 +1,6 @@
 require "digest/sha1"
 class User < ActiveRecord::Base
-  acts_as_solr
+ 
   has_many :comments
 
   attr_accessor :password_confirmation
