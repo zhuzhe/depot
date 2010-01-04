@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
-  before_filter :require_admin,:except=>[:find_products_with_category,:search,:show,:latest]
+  skip_before_filter :require_admin,:only=>[:find_products_with_category,:search,:show,:latest]
   skip_before_filter :require_login,:only=>[:searce,:find_products_with_category,:show,:latest]
   def index
     @products = Product.all
@@ -101,6 +101,7 @@ class ProductsController < ApplicationController
   def search
 
     @products=Product.all(:conditions=>"name like '%#{params[:key]}%'")
+#    @products=Product.find_by_solr(params[:key])
 
   end
   def upload

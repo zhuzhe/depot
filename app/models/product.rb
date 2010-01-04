@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  acts_as_solr :fields=>[:name,:description]
   validates_presence_of :name,:description,:image_url
   validates_numericality_of :price
   validates_numericality_of :quantity,:only_integer=>true,:greater_than_or_equal_to=>0

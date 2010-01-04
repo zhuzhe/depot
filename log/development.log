@@ -41177,3 +41177,727 @@ Migrating to CreateProducts (20091209111500)
   [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
 Migrating to CreateProducts (20091209111500)
   [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Table 'products' already exists: CREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `image_url` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-28 10:17:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (60.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 79ms (View: 15, DB: 61) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-28 10:17:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-12-28 10:18:05) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "controller"=>"users", "user"=>{"name"=>"admin", "password_confirmation"=>"[FILTERED]", "admin"=>"true", "password"=>"[FILTERED]", "email"=>"zhuzheiswho@sina.com"}}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`name` = BINARY 'admin') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`name`, `salt`, `created_at`, `updated_at`, `hashed_password`, `admin`, `email`) VALUES('admin', '21741388800.508390652104438', '2009-12-28 02:18:05', '2009-12-28 02:18:05', '501b388eccd6d39b0cf133dec3f5b1f029d8f717', 1, 'zhuzheiswho@sina.com')[0m
+Sent mail to zhuzheiswho@sina.com
+
+Date: Mon, 28 Dec 2009 10:18:05 +0800
+From: zhuzheiswho@gmail.com
+To: zhuzheiswho@sina.com
+Subject: welcome
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary=mimepart_4b38155d52645_25f819d28183f5
+
+
+--mimepart_4b38155d52645_25f819d28183f5
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: Quoted-printable
+Content-Disposition: inline
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww=
+w.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+  <meta http-equiv=3D"content-type" content=3D"text/html;charset=3DUTF-8"=
+ />
+  <title>welcom email</title>
+
+</head>
+  <body>
+    <h1>Welcome to product.com:</h1>
+    <p>  You have successfully signed up to example.com, and your usernam=
+e is:admin<br/>
+      To login to the site, just follow this link:http://localhost:3000/s=
+ession/new  </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>=
+
+--mimepart_4b38155d52645_25f819d28183f5--
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users/4
+Completed in 1132ms (DB: 3) | 302 Found [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-28 10:18:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"users"}
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 14ms (View: 8, DB: 2) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-28 10:53:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 37ms (View: 18, DB: 16) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2009-12-28 10:53:30) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Destroy (24.2ms)[0m   [0mDELETE FROM `users` WHERE `id` = 3[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`admin` = 1) [0m
+  [4;35;1mSQL (23.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 57ms (DB: 50) | 302 Found [http://localhost/users/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-28 10:53:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 18ms (View: 13, DB: 2) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-12-28 11:34:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (12.6ms)
+Rendered share/_sidebar (2.4ms)
+Completed in 115ms (View: 112, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2009-12-28 11:34:33) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-21 00:00:00' AND '2009-12-28 11:34:33') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+  [4;35;1mProduct Columns (19.6ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+Completed in 58ms (View: 26, DB: 20) | 200 OK [http://localhost/products/latest]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-12-28 11:34:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/sessions
+Rendering sessions/new
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://localhost/session/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#register (for 127.0.0.1 at 2009-12-28 11:34:40) [GET]
+  Parameters: {"action"=>"register", "controller"=>"users"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/users
+Rendering users/register
+Completed in 24ms (View: 19, DB: 2) | 200 OK [http://localhost/register]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:34:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:35:07) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>" http://login.comrite.com/zhuzheiswho", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:35:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:35:27) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"http://login.comrite.com/zhuzheiswho", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 61038ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:36:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:37:38) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"http://login.comrite.com/zhuzheiswho", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 62547ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:38:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:39:39) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"zhuzheiswho.onedoor.cn", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 265ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:39:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:40:14) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"zhuzheiswho.onedoor.cn", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 92ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:40:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:43:00) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"zhuzheiswho.myid.net", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 429ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:43:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:44:23) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"zhuzheiswho.myid.net", "controller"=>"openids"}
+Redirected to http://server.myid.net/server?openid.assoc_handle=8782a59fa36c42f6&openid.identity=http%3A%2F%2Fzhuzheiswho.myid.net%2F&openid.mode=checkid_setup&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fopenid%2Fcomplete%3Fopenid1_claimed_id%3Dhttp%253A%252F%252Fzhuzheiswho.myid.net%252F%26rp_nonce%3D2009-12-28T03%253A44%253A25Zcslhm2&openid.trust_root=%2FUsers%2Fzhuzhe%2FNetBeansProjects%2Fdepot
+Completed in 2248ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#complete (for 127.0.0.1 at 2009-12-28 11:44:25) [GET]
+  Parameters: {"openid.mode"=>"error", "rp_nonce"=>"2009-12-28T03:44:25Zcslhm2", "openid.ns"=>"http://specs.openid.net/auth/2.0", "action"=>"complete", "openid.error"=>"0x301: Realm verification failed (2) for: /Users/zhuzhe/NetBeansProjects/depot", "openid1_claimed_id"=>"http://zhuzheiswho.myid.net/", "serviceDomain"=>".myid.net", "controller"=>"openids"}
+Redirected to http://localhost:3000/openid/new
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/openid/complete?openid1_claimed_id=http%3A%2F%2Fzhuzheiswho.myid.net%2F&rp_nonce=2009-12-28T03%3A44%3A25Zcslhm2&openid.mode=error&openid.error=0x301%3A+Realm+verification+failed+%282%29+for%3A+%2FUsers%2Fzhuzhe%2FNetBeansProjects%2Fdepot&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&serviceDomain=.myid.net]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#new (for 127.0.0.1 at 2009-12-28 11:44:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"openids"}
+Rendering openids/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/openid/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#create (for 127.0.0.1 at 2009-12-28 11:46:04) [POST]
+  Parameters: {"commit"=>"Verify", "action"=>"create", "authenticity_token"=>"cC2Zx8lSQpiik9J+YeZKTi1fHT7L50/U6FGedh9s3RI=", "openid_identifier"=>"zhuzheiswho.myid.net", "controller"=>"openids"}
+Redirected to http://server.myid.net/server?openid.assoc_handle=8782a59fa36c42f6&openid.claimed_id=http%3A%2F%2Fzhuzheiswho.myid.net%2F&openid.identity=http%3A%2F%2Fzhuzheiswho.myid.net%2F&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.realm=http%3A%2F%2Flocalhost%3A3000%2F&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fopenid%2Fcomplete
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/openid]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing OpenidsController#complete (for 127.0.0.1 at 2009-12-28 11:46:37) [GET]
+  Parameters: {"openid.op_endpoint"=>"http://server.myid.net/server", "openid.mode"=>"id_res", "openid.return_to"=>"http://localhost:3000/openid/complete", "openid.sig"=>"trtdlaAtKgUUCgdcXSarxEgegq8=", "openid.response_nonce"=>"2009-12-28T03:46:37Z0610", "openid.ns"=>"http://specs.openid.net/auth/2.0", "action"=>"complete", "openid.identity"=>"http://zhuzheiswho.myid.net/", "openid.assoc_handle"=>"8782a59fa36c42f6", "openid.signed"=>"op_endpoint,claimed_id,identity,return_to,response_nonce,assoc_handle,mode", "controller"=>"openids", "openid.claimed_id"=>"http://zhuzheiswho.myid.net/"}
+Redirected to http://localhost:3000/home
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/openid/complete?openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.op_endpoint=http%3A%2F%2Fserver.myid.net%2Fserver&openid.claimed_id=http%3A%2F%2Fzhuzheiswho.myid.net%2F&openid.response_nonce=2009-12-28T03%3A46%3A37Z0610&openid.mode=id_res&openid.identity=http%3A%2F%2Fzhuzheiswho.myid.net%2F&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fopenid%2Fcomplete&openid.assoc_handle=8782a59fa36c42f6&openid.signed=op_endpoint%2Cclaimed_id%2Cidentity%2Creturn_to%2Cresponse_nonce%2Cassoc_handle%2Cmode&openid.sig=trtdlaAtKgUUCgdcXSarxEgegq8%3D]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-12-28 11:46:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (2.5ms)
+Rendered share/_sidebar (0.6ms)
+Completed in 32ms (View: 29, DB: 0) | 200 OK [http://localhost/home]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2009-12-28 11:46:37) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-21 00:00:00' AND '2009-12-28 11:46:37') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+  [4;36;1mProduct Columns (23.8ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+Completed in 64ms (View: 32, DB: 24) | 200 OK [http://localhost/products/latest]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-12-28 12:56:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (569.6ms)
+Rendered share/_sidebar (0.7ms)
+Completed in 608ms (View: 605, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2009-12-28 12:56:35) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-21 00:00:00' AND '2009-12-28 12:56:35') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+  [4;36;1mProduct Columns (34.3ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47products47find_products_with_category46html46erb at /Users/zhuzhe/NetBeansProjects/depot/app/views/products/find_products_with_category.html.erb:10)
+Completed in 200ms (View: 44, DB: 35) | 200 OK [http://localhost/products/latest]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (49.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-01-03 20:28:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (28.2ms)
+Rendered share/_sidebar (2.2ms)
+Completed in 116ms (View: 114, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2010-01-03 20:28:35) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;35;1mProduct Load (68.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-27 00:00:00' AND '2010-01-03 20:28:35') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+Completed in 191ms (View: 51, DB: 70) | 200 OK [http://localhost/products/latest]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:28:40) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (28.7ms)[0m   [0mSHOW TABLES[0m
+
+NoMethodError (undefined method `find_by_solr' for #<Class:0x1035c7228>):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:29:25) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (120.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (29.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:30:22) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;35;1mProduct Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (19.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:31:11) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:43:44) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;35;1mProduct Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:47:11) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (35.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-01-03 20:47:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (0.6ms)
+Rendered share/_sidebar (0.6ms)
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2010-01-03 20:47:15) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;35;1mProduct Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-27 00:00:00' AND '2010-01-03 20:47:15') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+Completed in 13ms (View: 2, DB: 3) | 200 OK [http://localhost/products/latest]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:47:17) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;35;1mProduct Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+
+RuntimeError (There was a problem executing your search: Unknown field_type symbol: decimal in /Users/zhuzhe/NetBeansProjects/depot/vendor/plugins/acts_as_solr/lib/common_methods.rb:28:in `get_solr_field_type'):
+  app/controllers/products_controller.rb:103:in `search'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (33.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:48:57) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/search
+
+ActionView::TemplateError (undefined method `each' for #<ActsAsSolr::SearchResults:0x103485c70>) on line #4 of app/views/products/search.html.erb:
+1: 
+2: 
+3: 
+4: <%for product in @products%>
+5: <%=image_tag product.image_url, :size => "100x150"%><br>
+6: <%=product.name%><br>
+7: <%= number_to_currency product.price%><br>
+
+    app/views/products/search.html.erb:4
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:50:33) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/search
+Completed in 101ms (View: 7, DB: 3) | 200 OK [http://localhost/products/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-01-03 20:53:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (0.5ms)
+Rendered share/_sidebar (0.6ms)
+Completed in 7ms (View: 5, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2010-01-03 20:53:39) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (1.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-27 00:00:00' AND '2010-01-03 20:53:39') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+Completed in 16ms (View: 2, DB: 4) | 200 OK [http://localhost/products/latest]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:53:42) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;36;1mProduct Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/search
+
+ActionView::TemplateError (undefined method `each' for #<ActsAsSolr::SearchResults:0x103625b70>) on line #4 of app/views/products/search.html.erb:
+1: <%=debug @products%>
+2: 
+3: 
+4: <%for product in @products%>
+5: <%=image_tag product.image_url, :size => "100x150"%><br>
+6: <%=product.name%><br>
+7: <%= number_to_currency product.price%><br>
+
+    app/views/products/search.html.erb:4
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-01-03 20:53:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"store"}
+Rendering template within layouts/store
+Rendering store/index
+Rendered share/_header (0.5ms)
+Rendered share/_sidebar (0.6ms)
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#latest (for 127.0.0.1 at 2010-01-03 20:53:49) [GET]
+  Parameters: {"action"=>"latest", "controller"=>"products"}
+  [4;35;1mProduct Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`created_at` BETWEEN '2009-12-27 00:00:00' AND '2010-01-03 20:53:49') [0m
+Rendering template within layouts/products
+Rendering products/find_products_with_category
+Completed in 13ms (View: 2, DB: 3) | 200 OK [http://localhost/products/latest]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+
+
+Processing ProductsController#search (for 127.0.0.1 at 2010-01-03 20:54:07) [POST]
+  Parameters: {"commit"=>"Search", "action"=>"search", "authenticity_token"=>"m23+R2VFcPYSqE+2gm5c5onty8ZZaAQMSm3if8SRodo=", "controller"=>"products", "key"=>"mac"}
+  [4;35;1mProduct Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendering template within layouts/products
+Rendering products/search
+Completed in 21ms (View: 6, DB: 3) | 200 OK [http://localhost/products/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (28.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /Users/zhuzhe/NetBeansProjects/depot/app/controllers/application_controller.rb:7)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (72.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m

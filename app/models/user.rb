@@ -1,5 +1,6 @@
 require "digest/sha1"
 class User < ActiveRecord::Base
+  acts_as_solr
   has_many :comments
 
   attr_accessor :password_confirmation
@@ -7,7 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name,:password
   validates_uniqueness_of :name
   validates_confirmation_of :password
-   validates_format_of  :email,:with =>/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,:message=>' email is not correct'
+  validates_format_of  :email,:with =>/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,:message=>' email is not correct'
  
 
   validate :password_non_blank

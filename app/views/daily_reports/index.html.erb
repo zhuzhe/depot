@@ -22,7 +22,7 @@
     });
 </script>
 <%end%>
-<a href="/income">test</a>
+
 <h1>Listing daily_reports</h1>
 
 <table>
@@ -45,6 +45,6 @@
 <br />
 <%=select_year Time.now%><%=button_to 'check report','#',:id=>'check'%>
 <div id="report_chart">
-  <%#*<img src='http://chart.apis.google.com/chart?cht=p3&amp;chs=500x250&amp;chd=t:60,40&amp;chl=hello|word'  alt="Sample chart" ></img>%>
+ 
   </div>
 <%= link_to 'New daily_report', new_daily_report_path %>
