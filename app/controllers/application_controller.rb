@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   session :session_key=>"_depot_session_id"
-# before_filter :require_login
-#  before_filter :require_admin
+  before_filter :require_login
+  before_filter :require_admin
   # Scrub sensitive parameters from your log
    filter_parameter_logging :password
   def find_car
