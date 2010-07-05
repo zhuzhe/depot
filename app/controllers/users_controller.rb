@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
 
-  skip_before_filter :require_login,:only=>[:create]
+  skip_before_filter :require_login,:only=>[:create,:register,:show]
   
-  skip_before_filter :require_admin,:only=>[:create]
+  skip_before_filter :require_admin,:only=>[:create,:register,:show,:update]
   def index
     @users = User.all
 
@@ -76,8 +76,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
+        format.js
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
+        
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }

@@ -1,14 +1,62 @@
-<p>
-  <b>Name:</b>
+<%= javascript_include_tag "jquery-1.3" %>
+<%javascript_tag do%>
+	$(document).ready(function(){
+		
+		$('#edit').click(function(){
+			$('#mask').show();
+			$('#edit_person_div').show();
+		});
+		$('#close').click(function(){
+			$('#mask').hide();
+			$('#edit_person_div').hide();
+		});
+		
+		$('#change_password').click(function(){
+			$('#mask').show();
+			$('#change_password_div').show();
+		});
+	});
+<% end %>
+<div id="change_password_div"  style="position:absolute;top:100px;left:300px;   height:300px;width:400px;display:none;z-index:9999;border:solid 5px">
+	<div>
+		<% form_remote_for @user do |f| %>
+		password:<%=  f.text_field :password%><br>
+		confirmation:<%= f.text_field :password_confirmation %><br>
+		<%= f.hidden_field :name %>
+		<%= f.hidden_field :email %>
+		<%= f.submit 'comfirm' %>
+		<% end %>
+	</div>
+</div>
+<div>
+	<ul style="list-style:none">
+	<li><%= link_to "edit" ,"#",:id=>"edit"%></li>
+  <li><b>Name:</b>
+	
   <%=h @user.name %>
-   <b>email:</b>
+	</li>
+  <li> <b>email:</b>
   <%=h @user.email %>
-  <b>Admin:</b>
-  <%=h @user.admin?%>
-</p>
+	</li>
+  <li>	<%= link_to "change password","#" ,:id=>"change_password"%></li>
+	</ul>
+</div>
 
+<div id="mask" style="position:absolute;top:0px;left:0px;background-color:gray;display:none;height:100%;width:100%;z-index:1000;opacity:0.5">
+</div>
 
+<div id="edit_person_div" style="position:absolute;top:100px;left:300px;   height:300px;width:400px;display:none;z-index:9999;border:solid 5px">
+	
+	<div style="border:solid 1px black">
+	<%= link_to "close", "#",:id=>"close" %>
+	<div>
+		
+	<div>
+		<% form_remote_for @user do |f| %>
+		name:<%=  f.text_field :name%><br>
+		email:<%= f.text_field :email %><br>
+		<%= f.submit 'comfirm' %>
+		<% end %>
+	</div>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

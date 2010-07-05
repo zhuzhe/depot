@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218112135) do
+ActiveRecord::Schema.define(:version => 20100705130912) do
 
   create_table "car_items", :force => true do |t|
     t.datetime "created_at"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(:version => 20091218112135) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "name"
     t.text     "address"
     t.string   "email"
     t.string   "pay_type",   :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_id"
   end
 
   create_table "products", :force => true do |t|
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20091218112135) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :default => "", :null => false
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

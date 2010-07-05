@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   skip_before_filter :require_admin,:only=>[:find_products_with_category,:search,:show,:latest]
-  skip_before_filter :require_login,:only=>[:searce,:find_products_with_category,:show,:latest]
+  skip_before_filter :require_login,:only=>[:search,:find_products_with_category,:show,:latest]
   def index
     @products = Product.all
 
@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     respond_to do |format|
-      if @product.update_attributes(params[:product])
+      if @product.update_attributes(params[:product])&&upload
         flash[:notice] = 'Product was successfully updated.'
         format.html { redirect_to(@product) }
         format.xml  { head :ok }
@@ -78,7 +78,8 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-
+    File.delete("#{RAILS_ROOT}/public/#{@product.image_url}"
+    )
     respond_to do |format|
       format.html { redirect_to(products_url) }
       format.xml  { head :ok }

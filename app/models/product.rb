@@ -6,8 +6,8 @@ class Product < ActiveRecord::Base
   validate :price_must_be_at_least_a_cent
   validates_uniqueness_of :name
   validates_format_of :image_url,
-    :with =>%r{\.(gif|jpg|png)$},
-    :message=>"must be url for (gif|jpg|png)"
+    :with =>/.*\.(gif|jpg|png)$/,
+    :message=>"must be uri for (gif|jpg|png)"
   belongs_to :category
   has_many :line_items
   has_many :comments

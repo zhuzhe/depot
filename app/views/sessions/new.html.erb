@@ -31,7 +31,7 @@
     <%=text_field_tag :name%><br>
     <%=label_tag :password%>
     <%=password_field_tag :password%><br>
-    <%=submit_tag "Login"%>
+    <%=submit_tag "Login"%><%=link_to 'Open id',new_openid_path%>
   <%end%>
 </div>
 
@@ -42,4 +42,3 @@
 </div>
 <%=link_to "Register",register_path,{:id=>"show_register"}%>
 <%=link_to "Login",new_session_path,{:id=>"show_login"}%>
-<%=link_to 'Open id',new_openid_path%>

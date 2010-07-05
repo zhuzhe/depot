@@ -1,6 +1,6 @@
 class CreateDailyReports < ActiveRecord::Migration
   def self.up
-    create_table :daily_reports do |t|
+    create_table :daily_reports ,:force=> true do |t|
       
       
       t.timestamps

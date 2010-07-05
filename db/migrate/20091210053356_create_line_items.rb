@@ -1,6 +1,6 @@
 class CreateLineItems < ActiveRecord::Migration
   def self.up
-    create_table :line_items do |t|
+    create_table :line_items ,:force=> true do |t|
 
       t.integer :quantity,:nall=>false
       t.decimal :total_price,:null=>false,:precision=>8,:scale=>2

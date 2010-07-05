@@ -1,6 +1,6 @@
 class CreateCars < ActiveRecord::Migration
   def self.up
-    create_table :cars do |t|
+    create_table :cars ,:force=> true do |t|
 
       t.timestamps
     end

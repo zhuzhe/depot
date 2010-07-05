@@ -1,5 +1,4 @@
-<%=debug @products%>
-
+<%= render :partial => "share/header"%>
 
 <%for product in @products%>
 <%=image_tag product.image_url, :size => "100x150"%><br>
